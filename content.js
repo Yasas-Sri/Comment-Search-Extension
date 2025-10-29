@@ -71,14 +71,18 @@ function highlightMatches(query, loose = true, autoTriggered = false) {
 
   const selectors = [
     '#content-text',                           // YouTube comment text
-    'div[data-test-id="comment"]',            // Reddit comment
     'ytd-comment-view-model #content-text',   // YouTube new structure
     'yt-attributed-string span',              // YouTube comment spans
     '.comment-text',                          // Generic comment text
-    '[data-testid="comment"] p',             // Reddit comment paragraphs
-    'div[id^="t1_"] .usertext-body',         // Reddit comment body
-    '.Comment p',                            // Reddit comment class
-    '.usertext .md p'                        // Reddit markdown comments
+    '[data-testid="comment"] [slot="comment"]', // New Reddit comment content
+    '[data-test-id="comment"] [slot="comment"]', // New Reddit variant
+    'shreddit-comment [slot="comment"]',      // New Reddit shreddit component
+    'shreddit-comment p',                     // New Reddit paragraphs
+    'div[id^="t1_"] .usertext-body',         // Old Reddit comment body
+    '.Comment p',                            // Old Reddit comment class
+    '.usertext .md p',                       // Old Reddit markdown comments
+    '[data-testid="comment"] div[class*="RichTextJSON"]', // New Reddit rich text
+    'div[data-adclicklocation="comments"] p' // New Reddit comment paragraphs
   ];
 
   const elements = document.querySelectorAll(selectors.join(', '));
@@ -151,13 +155,15 @@ function startObserving() {
           // More comprehensive check for new comments
           const commentSelectors = [
             '#content-text',                              // YouTube comment text
-            'div[data-test-id="comment"]',               // Reddit comment
             'ytd-comment-thread-renderer',               // YouTube comment container
             'ytd-comment-view-model',                    // YouTube new comment structure
             '.comment',                                   // Generic comment class
             '[data-testid="comment"]',                   // Reddit comment testid
+            '[data-test-id="comment"]',                  // Reddit comment variant
+            'shreddit-comment',                          // New Reddit comment component
             'div[id^="t1_"]',                           // Reddit comment threads
-            '.Comment'                                   // Reddit comment class
+            '.Comment',                                   // Reddit comment class
+            'faceplate-tracker[source="comment"]'        // New Reddit comment tracker
           ];
           
           const hasNewComments = commentSelectors.some(selector => 
@@ -193,8 +199,11 @@ function startObserving() {
     document.getElementById('contents'),                   // YouTube main content
     document.querySelector('#comments #continuations'),   // YouTube comment continuations
     document.querySelector('.commentarea'),               // Reddit comment area
+    document.querySelector('shreddit-comment-tree'),      // New Reddit comment tree
     document.querySelector('[data-testid="comments-page-link-num-comments"]')?.closest('div'), // Reddit
     document.querySelector('.sitetable'),                 // Reddit comment listing
+    document.querySelector('[slot="comment-tree"]'),      // New Reddit comment slot
+    document.querySelector('div[data-adclicklocation="comments"]'), // New Reddit comments container
     document.body // Fallback to watch entire page
   ].filter(Boolean);
 
@@ -263,14 +272,18 @@ window.addEventListener('scroll', () => {
   scrollTimeout = setTimeout(() => {
     const newCommentCount = document.querySelectorAll([
       '#content-text',
-      'div[data-test-id="comment"]',
       'ytd-comment-view-model #content-text',
       'yt-attributed-string span',
       '.comment-text',
-      '[data-testid="comment"] p',
+      '[data-testid="comment"] [slot="comment"]',
+      '[data-test-id="comment"] [slot="comment"]',
+      'shreddit-comment [slot="comment"]',
+      'shreddit-comment p',
       'div[id^="t1_"] .usertext-body',
       '.Comment p',
-      '.usertext .md p'
+      '.usertext .md p',
+      '[data-testid="comment"] div[class*="RichTextJSON"]',
+      'div[data-adclicklocation="comments"] p'
     ].join(', ')).length;
     
     if (newCommentCount > matchedElements.length) {
