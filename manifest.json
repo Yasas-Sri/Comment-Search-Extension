@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Comment Searcher",
+  "version": "1.0",
+  "description": "Search YouTube/Reddit comments by words in any order",
+  "permissions": ["scripting", "activeTab"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Comment Searcher",
+    "default_icon": {
+      "16": "searchicon.png",
+      "48": "searchicon.png",
+      "128": "searchicon.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*",
+        "*://www.reddit.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}

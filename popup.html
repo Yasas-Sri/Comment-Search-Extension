@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body { 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        margin: 0;
+        padding: 16px; 
+        width: 300px; 
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        box-sizing: border-box;
+      }
+      
+      .container {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        padding: 20px;
+        color: #333;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+      
+      h2 {
+        margin: 0 0 16px 0;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        color: #2c3e50;
+      }
+      
+      #searchInput {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e1e8ed;
+        border-radius: 8px;
+        font-size: 14px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+      }
+      
+      #searchInput:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+      
+      .checkbox-container {
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      #strictMode {
+        width: 16px;
+        height: 16px;
+        accent-color: #667eea;
+      }
+      
+      label {
+        font-size: 13px;
+        color: #5a6c7d;
+        cursor: pointer;
+        user-select: none;
+      }
+      
+      .button-group {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      
+      .nav-buttons {
+        display: flex;
+        gap: 4px;
+      }
+      
+      button {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        flex: 1;
+      }
+      
+      #searchBtn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        flex: 2;
+      }
+      
+      #searchBtn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      }
+      
+      #prevBtn, #nextBtn {
+        background: #f8f9fa;
+        color: #495057;
+        border: 1px solid #dee2e6;
+        padding: 8px 12px;
+        min-width: 60px;
+      }
+      
+      #prevBtn:hover, #nextBtn:hover {
+        background: #e9ecef;
+        transform: translateY(-1px);
+      }
+      
+      #prevBtn:active, #nextBtn:active, #searchBtn:active {
+        transform: translateY(0);
+      }
+      
+      .footer {
+        text-align: center;
+        font-size: 11px;
+        color: #6c757d;
+        margin-top: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Comment Searcher</h2>
+      
+      <input type="text" id="searchInput" placeholder="Search comments..." />
+      
+      <div class="checkbox-container">
+        <input type="checkbox" id="strictMode" />
+        <label for="strictMode">Strict phrase match</label>
+      </div>
+      
+      <div class="button-group">
+        <button id="searchBtn">Search</button>
+      </div>
+      
+      <div class="nav-buttons">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+      </div>
+      
+      <div class="footer">
+        YouTube & Reddit comments
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
