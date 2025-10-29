@@ -2,7 +2,7 @@
 
 A Chrome extension that allows you to search for specific words or phrases in YouTube and Reddit comments with advanced highlighting and navigation features.
 
-## 🚀 Features
+##  Features
 
 - **Smart Search**: Search for words in any order (loose mode) or exact phrases (strict mode)
 - **Real-time Highlighting**: Words are highlighted in yellow for easy identification
@@ -12,14 +12,14 @@ A Chrome extension that allows you to search for specific words or phrases in Yo
 - **Clean Transitions**: Search state clears when navigating to different pages
 - **Visual Focus**: Current match is outlined in red for precise navigation
 
-## 📋 Supported Platforms
+##  Supported Platforms
 
 - **YouTube**: All comment types including replies
 - **Reddit**: Comments and nested comment threads
 
-## 🛠️ Installation
+## Installation
 
-### Method 1: Load as Unpacked Extension (Development)
+### Load as Unpacked Extension (Development)
 
 1. **Download or Clone** this repository to your local machine
 2. **Open Chrome** and navigate to `chrome://extensions/`
@@ -27,11 +27,8 @@ A Chrome extension that allows you to search for specific words or phrases in Yo
 4. **Click "Load unpacked"** and select the extension folder
 5. **Pin the extension** to your toolbar for easy access
 
-### Method 2: Install from Chrome Web Store (Coming Soon)
 
-_Extension will be available on Chrome Web Store after review_
-
-## 🎯 How to Use
+##  How to Use
 
 ### Basic Search
 
@@ -39,8 +36,8 @@ _Extension will be available on Chrome Web Store after review_
 2. **Click the extension icon** in your browser toolbar
 3. **Enter your search term** in the input field
 4. **Choose search mode**:
-   - ☐ Unchecked (default): Words can appear in any order
-   - ☑️ Checked: Search for exact phrase match
+   -  Unchecked (default): Words can appear in any order
+   -  Checked: Search for exact phrase match
 5. **Click "Search"** to highlight matching comments
 
 ### Navigation
@@ -55,7 +52,7 @@ _Extension will be available on Chrome Web Store after review_
 - **Page isolation**: Each page/video has independent search sessions
 - **Visual indicators**: Current match highlighted with red outline
 
-## 🔧 Search Modes
+##  Search Modes
 
 ### Loose Mode (Default)
 
@@ -74,7 +71,7 @@ _Extension will be available on Chrome Web Store after review_
   - "This is a great video"
   - "What a great video!"
 
-## 📁 File Structure
+##  File Structure
 
 ```
 commentExtension/
@@ -82,13 +79,11 @@ commentExtension/
 ├── popup.html            # Extension popup interface
 ├── popup.js             # Popup functionality
 ├── content.js           # Main search and highlighting logic
-├── icon16.png           # Extension icon (16x16)
-├── icon48.png           # Extension icon (48x48)
-├── icon128.png          # Extension icon (128x128)
+├── searchicon.png       # Extension icon 
 └── README.md            # This file
 ```
 
-## 🎨 Technical Details
+##  Technical Details
 
 ### Permissions
 
@@ -118,7 +113,7 @@ The extension automatically detects comments using multiple selectors:
 - **Custom Events**: Communication between popup and content script
 - **Debounced Search**: Performance optimization for auto-detection
 
-## 🔧 Development
+##  Development
 
 ### Prerequisites
 
@@ -141,7 +136,7 @@ To add support for other platforms:
 3. Update `manifest.json` to include new domains
 4. Test thoroughly
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Extension Not Working
 
@@ -163,7 +158,7 @@ To add support for other platforms:
 - Avoid searching very common words
 - Close unnecessary tabs to free up memory
 
-## 📝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -171,11 +166,11 @@ To add support for other platforms:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📜 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙋‍♂️ Support
+##  Support
 
 If you encounter any issues or have suggestions:
 
@@ -183,15 +178,4 @@ If you encounter any issues or have suggestions:
 - Check the troubleshooting section above
 - Review browser console for error messages
 
-## 🔮 Future Features
 
-- [ ] Support for more platforms (Twitter, Facebook, etc.)
-- [ ] Search history and saved searches
-- [ ] Custom highlight colors
-- [ ] Export search results
-- [ ] Keyboard shortcuts
-- [ ] Search statistics
-
----
-
-**Made with ❤️ for better comment browsing experience**
