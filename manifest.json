@@ -3,6 +3,12 @@
   "name": "Comment Searcher",
   "version": "1.0",
   "description": "Search YouTube/Reddit comments by words in any order",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "comment-searcher@yasas-sri.github.io",
+      "strict_min_version": "113.0"
+    }
+  },
   "permissions": ["scripting", "activeTab"],
   "action": {
     "default_popup": "popup.html",
@@ -14,9 +20,9 @@
     }
   },
   "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "16": "searchicon.png",
+    "48": "searchicon.png",
+    "128": "searchicon.png"
   },
   "content_scripts": [
     {

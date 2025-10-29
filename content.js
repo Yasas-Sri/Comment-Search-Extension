@@ -112,10 +112,17 @@ function highlightMatches(query, loose = true, autoTriggered = false) {
           highlighted = originalText.replace(phraseRegex, '<mark style="background-color: yellow; padding: 1px 2px; border-radius: 2px;">$1</mark>');
         }
       }    if (matched) {
-      el.innerHTML = highlighted;
+      // Safely set content using DOMParser to avoid innerHTML security issues
+      el.textContent = '';
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(highlighted, 'text/html');
+      const nodes = doc.body.childNodes;
+      nodes.forEach(node => {
+        el.appendChild(node.cloneNode(true));
+      });
       matchedElements.push(el);
     } else {
-      el.innerHTML = originalText;
+      el.textContent = originalText;
     }
   });
 
