@@ -1,6 +1,7 @@
 # Comment Searcher Extension
 
-A Chrome extension that allows you to search for specific words or phrases in YouTube and Reddit comments with advanced highlighting and navigation features.
+A Firefox extension that allows you to search for specific words or phrases in YouTube and Reddit comments with advanced highlighting and navigation features.
+(Chrome version is coming soon)
 
 ## Extension
 ```
@@ -74,7 +75,7 @@ commentExtension/
 └── README.md            # This file
 ```
 
-##  License
+
 
 
 
